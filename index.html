@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Chain - Keep the Chain Going!</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">🔗</span>
+                <h1>Help Chain</h1>
+            </div>
+            <p class="tagline">Every act of kindness creates a ripple effect</p>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2 class="hero-title">Join the Movement of Helping</h2>
+            <p class="hero-subtitle">Help someone today and keep the chain growing!</p>
+            <button class="cta-button" id="startHelpingBtn">
+                <span class="button-icon">🤝</span>
+                Start Helping Now
+            </button>
+        </div>
+    </section>
+
+    <!-- Stats Overview -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">🏆</div>
+                    <div class="stat-value" id="totalChains">247</div>
+                    <div class="stat-label">Active Chains</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-value" id="totalHelpers">1,842</div>
+                    <div class="stat-label">People Helping</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🔥</div>
+                    <div class="stat-value" id="longestChain">156</div>
+                    <div class="stat-label">Longest Chain</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⏱️</div>
+                    <div class="stat-value" id="tournamentTime">2d 14h</div>
+                    <div class="stat-label">Tournament Time</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Active Tournament Banner -->
+    <section class="tournament-banner">
+        <div class="container">
+            <div class="tournament-content">
+                <div class="tournament-info">
+                    <span class="tournament-badge">🎯 ACTIVE TOURNAMENT</span>
+                    <h3>Winter Kindness Challenge</h3>
+                    <p>Ends in <span id="tournamentCountdown">2 days 14 hours</span></p>
+                </div>
+                <div class="tournament-prize">
+                    <span class="prize-icon">🏅</span>
+                    <span class="prize-text">Winner gets featured + special badge!</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leaderboard Section -->
+    <section class="leaderboard-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-icon">📊</span>
+                Group Leaderboard
+            </h2>
+            <div class="leaderboard" id="leaderboard">
+                <!-- Leaderboard items will be dynamically generated -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Participation Section -->
+    <section class="participation-section" id="participationSection">
+        <div class="container">
+            <div class="participation-card">
+                <h3>Join a Help Chain</h3>
+                <p>Add your name and select a group to help someone today!</p>
+                <form id="helpForm" class="help-form">
+                    <div class="form-group">
+                        <label for="userName">Your Name</label>
+                        <input type="text" id="userName" name="userName" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="groupSelect">Select a Group</label>
+                        <select id="groupSelect" name="groupSelect" required>
+                            <option value="">Choose a group...</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="helpMessage">How did you help? (Optional)</label>
+                        <textarea id="helpMessage" name="helpMessage" placeholder="Share your act of kindness..." rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">
+                        <span class="button-icon">✨</span>
+                        Add My Help to the Chain
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievement Showcase -->
+    <section class="achievements-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-icon">🏅</span>
+                Achievement Badges
+            </h2>
+            <div class="achievements-grid">
+                <div class="achievement-card unlocked">
+                    <div class="achievement-icon">🌟</div>
+                    <h4>First Helper</h4>
+                    <p>Started your first chain</p>
+                </div>
+                <div class="achievement-card unlocked">
+                    <div class="achievement-icon">🔥</div>
+                    <h4>Chain Master</h4>
+                    <p>Reached 10 chain length</p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">💎</div>
+                    <h4>Diamond Helper</h4>
+                    <p>100 acts of kindness</p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">👑</div>
+                    <h4>Legendary</h4>
+                    <p>Won a tournament</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="modal-icon">🎉</div>
+            <h3>Chain Updated!</h3>
+            <p class="modal-message" id="modalMessage">You've successfully added to the chain!</p>
+            <button class="modal-button" onclick="closeModal()">Continue Helping</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Help Chain. Spreading kindness, one link at a time.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
